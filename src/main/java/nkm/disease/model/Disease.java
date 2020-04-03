@@ -12,7 +12,7 @@ public class Disease {
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "description", nullable = false)
+    @Column(name = "icd10", nullable = false)
     private String icd10;
     @Column(name = "description", nullable = false)
     private String description;
@@ -22,16 +22,6 @@ public class Disease {
             joinColumns = @JoinColumn(name = "disease_id"),
             inverseJoinColumns = @JoinColumn(name = "symptom_id"))
     List<Symptom> symptoms;
-
-    public Disease(){
-    }
-
-    public Disease(String name, String icd10, String description) {
-        this.name = name;
-        this.icd10 = icd10;
-        this.description = description;
-        this.symptoms = new ArrayList<>();
-    }
 
     public Long getId() {
         return id;

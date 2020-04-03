@@ -16,15 +16,6 @@ public class Symptom {
     @ManyToMany(mappedBy = "symptoms")
     List<Disease> diseases;
 
-    public Symptom(){
-
-    }
-
-    public Symptom(String name, String description) {
-        this.name = name;
-        this.description = description;
-        this.diseases = new ArrayList<>();
-    }
 
     public Long getId() {
         return id;
