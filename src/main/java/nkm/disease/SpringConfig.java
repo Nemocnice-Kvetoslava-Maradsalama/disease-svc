@@ -19,6 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 import javax.sql.DataSource;
 import java.util.Locale;
+import java.util.Objects;
 
 @Configuration
 @EnableSwagger2WebMvc
@@ -30,7 +31,7 @@ public class SpringConfig {
     @Bean(name = "dataSource")
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(env.getProperty("spring.datasource.driver-class-name"));
+        dataSource.setDriverClassName(Objects.requireNonNull(env.getProperty("spring.datasource.driver-class-name")));
         dataSource.setUrl(env.getProperty("spring.datasource.url"));
         dataSource.setUsername(env.getProperty("spring.datasource.username"));
         dataSource.setPassword(env.getProperty("spring.datasource.password"));

@@ -26,6 +26,13 @@ public class DiseaseController {
         return entity.getId();
     }
 
+    @RequestMapping(value = "/addCure/", method = RequestMethod.POST)
+    public void addCureToDisease(@RequestBody Long disease, @RequestBody Long cure){
+        Disease d = diseaseService.find(disease);
+        d.getCures().add(cure);
+        diseaseService.update(d);
+    }
+
     @RequestMapping(value = "/", method = RequestMethod.PUT)
     public void updateDisease(@RequestBody Disease entity){
         diseaseService.update(entity);

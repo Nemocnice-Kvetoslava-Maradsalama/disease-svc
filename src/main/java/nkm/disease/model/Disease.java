@@ -22,6 +22,18 @@ public class Disease {
             joinColumns = @JoinColumn(name = "disease_id"),
             inverseJoinColumns = @JoinColumn(name = "symptom_id"))
     List<Symptom> symptoms;
+    @ElementCollection
+    @CollectionTable(name="Cures", joinColumns = @JoinColumn(name="disease_id"))
+    @Column(name="cure")
+    private List<Long> cures;
+
+    public List<Long> getCures() {
+        return cures;
+    }
+
+    public void setCures(List<Long> cures) {
+        this.cures = cures;
+    }
 
     public Long getId() {
         return id;
