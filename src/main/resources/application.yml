@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: marek123
+  application:
+    name: disease-svc
+eureka:
+  healthcheck:
+    enabled: true
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka}
+  instance:
+    preferIpAddress: true
+    instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+#spring.datasource.driver-class-name=org.postgresql.Driver
+#spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+#spring.datasource.username=postgres
+#spring.datasource.password=marek123
+#spring.application.name=disease-svc
+#spring.jpa.hibernate.ddl-auto=create
+#spring.jpa.hibernate.ddl-auto=create-drop
+#spring.security.enabled=false
+#eureka.client.healthcheck.enabled=true
+#eureka.client.service-url.default-zone=
+#eureka.instance.prefer-ip-address=true
+#eureka.instance.instance-id=
