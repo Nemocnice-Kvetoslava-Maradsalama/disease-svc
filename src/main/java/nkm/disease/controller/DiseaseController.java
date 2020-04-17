@@ -1,6 +1,8 @@
 package nkm.disease.controller;
 
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import nkm.disease.model.Disease;
 import nkm.disease.model.Symptom;
 import nkm.disease.model.Symptoms;
@@ -18,26 +20,30 @@ public class DiseaseController {
     @Autowired
     private DiseaseService diseaseService;
 
+    @ApiOperation(value = "Returns a single disease based on an ID of the disease.")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Disease getDisease(@PathVariable Long id){
+    public Disease getDisease(@PathVariable @ApiParam(required = true, value = "Disease ID of type Long") Long id){
         return diseaseService.find(id);
     }
 
+    @ApiOperation(value = "Adds a disease into the database.")
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public Long addDisease(@RequestBody Disease entity){
+    public Long addDisease(@RequestBody @ApiParam(value = "Disease JPA entity to be added", required = true) Disease entity){
         diseaseService.persist(entity);
         return entity.getId();
     }
 
+    @ApiOperation(value = "Adds a cure of a certain disease to the database.")
     @RequestMapping(value = "/addCure/", method = RequestMethod.POST)
-    public void addCureToDisease(@RequestBody Long disease, @RequestBody Long cure){
+    public void addCureToDisease(@RequestBody @ApiParam(required = true, value = "Disease ID of type Long") Long disease, @RequestBody @ApiParam(required = true, value = "Cure ID of type Long") Long cure){
         Disease d = diseaseService.find(disease);
         d.getCures().add(cure);
         diseaseService.update(d);
     }
 
+    @ApiOperation(value = "Returns an array of at most ten diseases, ordered in descending order by number of symptoms of a given disease that match the list of symptoms given in the parameter.")
     @RequestMapping(value = "/diagnose/", method = RequestMethod.POST)
-    public List<Disease> diagnose(@RequestBody Symptoms symptoms){
+    public List<Disease> diagnose(@RequestBody @ApiParam(required = true, value="Array of JPA symptom entities") Symptoms symptoms){
         List<Disease> ds = diseaseService.findAll();
         TreeMap<Disease, Integer> match = new TreeMap<>(Collections.reverseOrder());
         List<Symptom> ss = symptoms.getSymptoms();
@@ -58,13 +64,15 @@ public class DiseaseController {
         return result;
     }
 
+    @ApiOperation(value = "Updates a disease in the database. The parameter disease is matched with a disease in the database based on the IDs.")
     @RequestMapping(value = "/", method = RequestMethod.PUT)
-    public void updateDisease(@RequestBody Disease entity){
+    public void updateDisease(@RequestBody @ApiParam(value = "Disease JPA entity", required = true) Disease entity){
         diseaseService.update(entity);
     }
 
+    @ApiOperation(value = "Deletes a single disease based on an ID of the disease.")
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deleteDisease(@PathVariable Long id){
+    public void deleteDisease(@PathVariable @ApiParam(required = true, value = "Disease ID of type Long") Long id){
         diseaseService.remove(diseaseService.find(id));
     }
 }
