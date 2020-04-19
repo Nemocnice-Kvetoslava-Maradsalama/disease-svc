@@ -1,0 +1,29 @@
+version: '3.1'
+
+services:
+  disease-svc:
+    container_name: disease_svc
+    build: ./
+    environment:
+      EUREKA_HOST: localhost
+      EUREKA_PORT: 8761
+      PG_HOST: disease_svc_db
+      PG_USER: postgres
+      PG_PASS: marek123
+      PG_PORT: 5432
+      PG_DB: postgres
+    ports:
+      - 8080:8080
+    depends_on:
+      - pgdb
+
+  pgdb:
+    container_name: disease_svc_db
+    hostname: disease_svc_db
+    image: postgres:9.6
+    environment:
+      POSTGRES_PASSWORD: marek123
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432
