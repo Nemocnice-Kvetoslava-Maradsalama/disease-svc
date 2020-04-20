@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
@@ -18,6 +19,7 @@ import javax.persistence.EntityManagerFactory;
 @ComponentScan(basePackages = "nkm.disease.dao")
 @ComponentScan(basePackages = "nkm.disease.service")
 @Import({SpringConfig.class})
+@EnableDiscoveryClient
 public class DiseaseSvcApplication {
 
     public static void main(String[] args) {

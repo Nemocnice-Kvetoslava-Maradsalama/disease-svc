@@ -3,7 +3,8 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://${PG_HOST:localhost}:${PG_PORT:5432}/${PG_DB:postgres}
     username: ${PG_USER:postgres}
-    password: ${PG_PASS}
+# delete default pw if present
+    password: ${PG_PASS:marek123}
   application:
     name: disease-svc
   jpa:
@@ -11,6 +12,9 @@ spring:
     show-sql: false
     hibernate:
       ddl-auto: create-drop
+
+server:
+  port: ${DISEASE_SVC_PORT:8080}
 
 eureka:
   healthcheck:
@@ -20,4 +24,4 @@ eureka:
       defaultZone: ${EUREKA_URI:http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka}
   instance:
     preferIpAddress: true
-    instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+    instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}
