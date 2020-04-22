@@ -18,7 +18,7 @@ import javax.persistence.EntityManagerFactory;
 @ComponentScan(basePackages = "nkm.disease.controller")
 @ComponentScan(basePackages = "nkm.disease.dao")
 @ComponentScan(basePackages = "nkm.disease.service")
-@Import({SpringConfig.class})
+@Import({SpringConfig.class, TestData.class})
 @EnableDiscoveryClient
 public class DiseaseSvcApplication {
 
