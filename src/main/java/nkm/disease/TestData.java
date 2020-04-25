@@ -82,7 +82,7 @@ public class TestData {
         disease0.setDescription("Major depressive disorder (MDD), also known simply as depression, is a mental disorder characterized by at least two weeks of low mood that is present across most situations.");
         disease0.setIcd10("F33");
         disease0.setName("Major depressive disorder");
-        disease0.setSymptoms(new ArrayList<>(Arrays.asList(symptom9)));
+        disease0.setSymptoms(Arrays.asList(symptom9));
 
         disease1.setDescription("Coronavirus disease 2019 (COVID-19) is an infectious disease caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). The disease was first identified in December 2019 in Wuhan, the capital of China's Hubei province, and has since spread globally, resulting in the ongoing 2019–20 coronavirus pandemic. The first confirmed case of what was then an unknown coronavirus was traced back to November 2019 in Hubei province. Common symptoms include fever, cough, and shortness of breath.");
         disease1.setIcd10("A08");

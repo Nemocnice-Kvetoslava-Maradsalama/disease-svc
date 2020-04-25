@@ -1,10 +1,17 @@
 package nkm.disease.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Disease {
     @Id
     @GeneratedValue
@@ -14,9 +21,10 @@ public class Disease {
     private String name;
     @Column(name = "icd10", nullable = false)
     private String icd10;
-    @Column(name = "description", nullable = false)
+    @Column(name = "description", nullable = false, length = 10485760)
     private String description;
     @ManyToMany
+    @JsonManagedReference
     @JoinTable(
             name = "disease_symptom",
             joinColumns = @JoinColumn(name = "disease_id"),
