@@ -24,7 +24,6 @@ public class Disease {
     @Column(name = "description", nullable = false, length = 10485760)
     private String description;
     @ManyToMany
-    @JsonManagedReference
     @JoinTable(
             name = "disease_symptom",
             joinColumns = @JoinColumn(name = "disease_id"),
@@ -81,5 +80,13 @@ public class Disease {
 
     public void setSymptoms(List<Symptom> symptoms) {
         this.symptoms = symptoms;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof Disease){
+            Disease d = (Disease) o;
+            return d.id.equals(this.id);
+        } else return false;
     }
 }

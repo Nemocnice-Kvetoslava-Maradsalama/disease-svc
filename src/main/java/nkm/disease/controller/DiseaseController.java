@@ -19,6 +19,8 @@ public class DiseaseController {
 
     @Autowired
     private DiseaseService diseaseService;
+    @Autowired
+    private SymptomService symptomService;
 
     @ApiOperation(value = "Returns a single disease based on an ID of the disease.")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -45,17 +47,20 @@ public class DiseaseController {
     @RequestMapping(value = "/diagnose/", method = RequestMethod.POST)
     public List<Disease> diagnose(@RequestBody @ApiParam(required = true, value="Array of JPA symptom entities") Symptoms symptoms){
         List<Disease> ds = diseaseService.findAll();
-        TreeMap<Disease, Integer> match = new TreeMap<>(Collections.reverseOrder());
+        HashMap<Disease, Integer> match = new HashMap<>();
         List<Symptom> ss = symptoms.getSymptoms();
         for (Disease d : ds){
             Integer matches = 0;
             for (Symptom s : ss){
-                if (d.getSymptoms().contains(s)) matches++;
+                List<Symptom> sms = d.getSymptoms();
+                if (sms.contains(s)) matches++;
             }
             match.put(d, matches);
         }
         List<Disease> result = new ArrayList<>();
-        Iterator<Map.Entry<Disease, Integer>> res = match.entrySet().iterator();
+        List<Map.Entry<Disease, Integer>> list = new ArrayList<>(match.entrySet());
+        list.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
+        Iterator<Map.Entry<Disease, Integer>> res = list.iterator();
         for (int i = 0; i < (Math.min(match.entrySet().size(), 10)); i++){
             Map.Entry<Disease, Integer> entry = res.next();
             if (entry.getValue() == 0) break;

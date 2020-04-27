@@ -22,7 +22,6 @@ public class Symptom {
     @Column(name = "description", nullable = false, length = 10485760)
     private String description;
     @ManyToMany(mappedBy = "symptoms")
-    @JsonBackReference
     List<Disease> diseases;
 
 
@@ -56,5 +55,13 @@ public class Symptom {
 
     public void setDiseaseSymptoms(List<Disease> diseaseSymptoms) {
         this.diseases = diseaseSymptoms;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof Symptom){
+            Symptom s = (Symptom) o;
+            return s.id.equals(this.id);
+        } else return false;
     }
 }
