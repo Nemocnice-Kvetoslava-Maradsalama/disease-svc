@@ -19,8 +19,12 @@ public class DiseaseController {
 
     @Autowired
     private DiseaseService diseaseService;
-    @Autowired
-    private SymptomService symptomService;
+
+    @ApiOperation(value = "Returns all diseases.")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public List<Disease> getAllDiseases(){
+        return diseaseService.findAll();
+    }
 
     @ApiOperation(value = "Returns a single disease based on an ID of the disease.")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

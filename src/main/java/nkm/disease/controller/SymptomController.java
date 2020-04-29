@@ -3,16 +3,25 @@ package nkm.disease.controller;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import nkm.disease.model.Disease;
 import nkm.disease.model.Symptom;
 import nkm.disease.service.SymptomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/symptom")
 public class SymptomController {
     @Autowired
     private SymptomService symptomService;
+
+    @ApiOperation(value = "Returns all symptoms.")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public List<Symptom> getAllSymptoms(){
+        return symptomService.findAll();
+    }
 
     @ApiOperation(value = "Returns a single symptom based on an ID of the symptom.")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
