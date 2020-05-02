@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>nkm.disease</OriginalElement>
+  <nodes>
+    <node x="291.2868303571429" y="0.0">nkm.disease.model.Disease</node>
+    <node x="365.9118303571429" y="319.0">nkm.disease.model.Symptom</node>
+    <node x="321.48325892857144" y="671.0">nkm.disease.model.Symptoms</node>
+    <node x="524.890625" y="1202.0">nkm.disease.controller.SymptomController</node>
+    <node x="580.7053571428571" y="904.0">nkm.disease.service.SymptomService</node>
+    <node x="21.391741071428555" y="595.0">nkm.disease.service.DiseaseService</node>
+    <node x="583.8582589285714" y="584.0">nkm.disease.dao.SymptomDao</node>
+    <node x="151.40848214285717" y="872.0">nkm.disease.controller.DiseaseController</node>
+    <node x="30.5" y="286.0">nkm.disease.dao.DiseaseDao</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="nkm.disease.service.SymptomService" target="nkm.disease.service.SymptomService">
+      <point x="-45.25" y="103.0" />
+      <point x="625.9553571428571" y="1130.0" />
+      <point x="560.7053571428571" y="1130.0" />
+      <point x="560.7053571428571" y="1007.0" />
+      <point x="-90.5" y="-0.0" />
+    </edge>
+    <edge source="nkm.disease.model.Symptom" target="nkm.disease.model.Disease">
+      <point x="-25.5" y="-81.0" />
+      <point x="442.4118303571429" y="266.0" />
+      <point x="413.6618303571429" y="266.0" />
+      <point x="33.375" y="103.0" />
+    </edge>
+    <edge source="nkm.disease.dao.SymptomDao" target="nkm.disease.model.Symptom">
+      <point x="0.0" y="-114.0" />
+      <point x="705.3582589285714" y="554.0" />
+      <point x="555.3404017857143" y="554.0" />
+      <point x="87.42857142857144" y="81.0" />
+    </edge>
+    <edge source="nkm.disease.controller.SymptomController" target="nkm.disease.service.SymptomService">
+      <point x="57.25" y="-113.0" />
+      <point x="696.640625" y="1182.0" />
+      <point x="716.4553571428571" y="1182.0" />
+      <point x="45.25" y="103.0" />
+    </edge>
+    <edge source="nkm.disease.dao.DiseaseDao" target="nkm.disease.dao.DiseaseDao">
+      <point x="-57.5" y="114.0" />
+      <point x="88.0" y="534.0" />
+      <point x="10.5" y="534.0" />
+      <point x="10.5" y="400.0" />
+      <point x="-115.0" y="-0.0" />
+    </edge>
+    <edge source="nkm.disease.model.Symptom" target="nkm.disease.model.Symptom">
+      <point x="-87.42857142857143" y="81.0" />
+      <point x="380.48325892857144" y="501.0" />
+      <point x="345.9118303571429" y="501.0" />
+      <point x="345.9118303571429" y="400.0" />
+      <point x="-102.0" y="-0.0" />
+    </edge>
+    <edge source="nkm.disease.model.Symptoms" target="nkm.disease.model.Symptoms">
+      <point x="-44.5" y="27.0" />
+      <point x="365.98325892857144" y="745.0" />
+      <point x="301.48325892857144" y="745.0" />
+      <point x="301.48325892857144" y="698.0" />
+      <point x="-89.0" y="-0.0" />
+    </edge>
+    <edge source="nkm.disease.controller.DiseaseController" target="nkm.disease.service.DiseaseService">
+      <point x="-90.0" y="-135.0" />
+      <point x="181.40848214285717" y="852.0" />
+      <point x="147.39174107142856" y="852.0" />
+      <point x="42.0" y="103.0" />
+    </edge>
+    <edge source="nkm.disease.model.Disease" target="nkm.disease.model.Symptom">
+      <point x="77.875" y="103.0" />
+      <point x="458.1618303571429" y="246.0" />
+      <point x="544.4118303571429" y="246.0" />
+      <point x="76.5" y="-81.0" />
+    </edge>
+    <edge source="nkm.disease.dao.SymptomDao" target="nkm.disease.dao.SymptomDao">
+      <point x="-60.75" y="114.0" />
+      <point x="644.6082589285714" y="832.0" />
+      <point x="563.8582589285714" y="832.0" />
+      <point x="563.8582589285714" y="698.0" />
+      <point x="-121.5" y="-0.0" />
+    </edge>
+    <edge source="nkm.disease.dao.DiseaseDao" target="nkm.disease.model.Disease">
+      <point x="0.0" y="-114.0" />
+      <point x="145.5" y="256.0" />
+      <point x="346.9118303571429" y="256.0" />
+      <point x="-33.375" y="103.0" />
+    </edge>
+    <edge source="nkm.disease.service.DiseaseService" target="nkm.disease.service.DiseaseService">
+      <point x="-42.0" y="103.0" />
+      <point x="63.391741071428555" y="821.0" />
+      <point x="1.3917410714285552" y="821.0" />
+      <point x="1.3917410714285552" y="698.0" />
+      <point x="-84.0" y="-0.0" />
+    </edge>
+    <edge source="nkm.disease.controller.DiseaseController" target="nkm.disease.controller.DiseaseController">
+      <point x="0.0" y="135.0" />
+      <point x="271.40848214285717" y="1162.0" />
+      <point x="131.40848214285717" y="1162.0" />
+      <point x="131.40848214285717" y="1007.0" />
+      <point x="-120.0" y="-0.0" />
+    </edge>
+    <edge source="nkm.disease.controller.DiseaseController" target="nkm.disease.model.Symptom">
+      <point x="30.0" y="-135.0" />
+      <point x="301.40848214285717" y="852.0" />
+      <point x="290.98325892857144" y="852.0" />
+      <point x="290.98325892857144" y="554.0" />
+      <point x="409.6261160714286" y="554.0" />
+      <point x="-58.28571428571428" y="81.0" />
+    </edge>
+    <edge source="nkm.disease.service.DiseaseService" target="nkm.disease.dao.DiseaseDao">
+      <point x="42.0" y="-103.0" />
+      <point x="147.39174107142856" y="564.0" />
+      <point x="203.0" y="564.0" />
+      <point x="57.5" y="114.0" />
+    </edge>
+    <edge source="nkm.disease.service.SymptomService" target="nkm.disease.dao.SymptomDao">
+      <point x="45.25" y="-103.0" />
+      <point x="716.4553571428571" y="852.0" />
+      <point x="766.1082589285714" y="852.0" />
+      <point x="60.75" y="114.0" />
+    </edge>
+    <edge source="nkm.disease.service.DiseaseService" target="nkm.disease.model.Disease">
+      <point x="-42.0" y="-103.0" />
+      <point x="63.391741071428555" y="564.0" />
+      <point x="0.0" y="564.0" />
+      <point x="0.0" y="246.0" />
+      <point x="324.6618303571429" y="246.0" />
+      <point x="-55.625" y="103.0" />
+    </edge>
+    <edge source="nkm.disease.controller.SymptomController" target="nkm.disease.model.Symptom">
+      <point x="-57.25" y="-113.0" />
+      <point x="582.140625" y="1182.0" />
+      <point x="509.98325892857144" y="1182.0" />
+      <point x="509.98325892857144" y="564.0" />
+      <point x="497.0546875" y="564.0" />
+      <point x="29.14285714285711" y="81.0" />
+    </edge>
+    <edge source="nkm.disease.controller.SymptomController" target="nkm.disease.controller.SymptomController">
+      <point x="0.0" y="113.0" />
+      <point x="639.390625" y="1448.0" />
+      <point x="504.89062500000006" y="1448.0" />
+      <point x="504.89062500000006" y="1315.0" />
+      <point x="-114.5" y="-0.0" />
+    </edge>
+    <edge source="nkm.disease.controller.DiseaseController" target="nkm.disease.model.Disease">
+      <point x="-30.0" y="-135.0" />
+      <point x="241.40848214285717" y="852.0" />
+      <point x="271.0" y="852.0" />
+      <point x="271.0" y="266.0" />
+      <point x="369.1618303571429" y="266.0" />
+      <point x="-11.125" y="103.0" />
+    </edge>
+    <edge source="nkm.disease.model.Symptoms" target="nkm.disease.model.Symptom">
+      <point x="-44.5" y="-27.0" />
+      <point x="365.98325892857144" y="564.0" />
+      <point x="438.7689732142858" y="564.0" />
+      <point x="-29.14285714285711" y="81.0" />
+    </edge>
+    <edge source="nkm.disease.controller.DiseaseController" target="nkm.disease.model.Symptoms">
+      <point x="90.0" y="-135.0" />
+      <point x="361.40848214285717" y="852.0" />
+      <point x="454.98325892857144" y="852.0" />
+      <point x="44.5" y="27.0" />
+    </edge>
+    <edge source="nkm.disease.model.Disease" target="nkm.disease.model.Disease">
+      <point x="-77.875" y="103.0" />
+      <point x="302.4118303571429" y="226.0" />
+      <point x="271.2868303571429" y="226.0" />
+      <point x="271.2868303571429" y="103.0" />
+      <point x="-89.0" y="-0.0" />
+    </edge>
+    <edge source="nkm.disease.service.SymptomService" target="nkm.disease.model.Symptom">
+      <point x="-45.25" y="-103.0" />
+      <point x="625.9553571428571" y="852.0" />
+      <point x="553.3582589285714" y="852.0" />
+      <point x="553.3582589285714" y="564.0" />
+      <point x="526.1975446428572" y="564.0" />
+      <point x="58.285714285714334" y="81.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="218.5" y="370.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
