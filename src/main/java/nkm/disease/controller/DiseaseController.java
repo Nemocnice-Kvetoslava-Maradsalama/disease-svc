@@ -4,6 +4,7 @@ package nkm.disease.controller;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import nkm.disease.model.Disease;
+import nkm.disease.model.DiseaseCure;
 import nkm.disease.model.Symptom;
 import nkm.disease.model.Symptoms;
 import nkm.disease.service.DiseaseService;
@@ -46,10 +47,10 @@ public class DiseaseController {
 
     @ApiOperation(value = "Adds a cure of a certain disease to the database.")
     @RequestMapping(value = "/addCure/", method = RequestMethod.POST)
-    public void addCureToDisease(@RequestBody @ApiParam(required = true, value = "Disease ID of type Long") Long disease, @RequestBody @ApiParam(required = true, value = "Cure ID of type Long") Long cure){
-        LOGGER.info("Persisting cure (id = "+cure+") into disease (id = "+disease+").");
-        Disease d = diseaseService.find(disease);
-        d.getCures().add(cure);
+    public void addCureToDisease(@RequestBody @ApiParam(required = true, value = "Disease ID of type Long with cure ID of type Long") DiseaseCure diseaseCure){
+        LOGGER.info("Persisting cure (id = "+diseaseCure.getCure()+") into disease (id = "+diseaseCure.getDisease()+").");
+        Disease d = diseaseService.find(diseaseCure.getDisease());
+        d.getCures().add(diseaseCure.getCure());
         diseaseService.update(d);
     }
 
