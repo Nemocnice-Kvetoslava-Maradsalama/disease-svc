@@ -1,7 +1,9 @@
 package nkm.disease;
 
+import nkm.disease.config.CorsBypass;
+import nkm.disease.config.SpringConfig;
+import nkm.disease.config.TestData;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -18,7 +20,7 @@ import javax.persistence.EntityManagerFactory;
 @ComponentScan(basePackages = "nkm.disease.controller")
 @ComponentScan(basePackages = "nkm.disease.dao")
 @ComponentScan(basePackages = "nkm.disease.service")
-@Import({SpringConfig.class, TestData.class})
+@Import({SpringConfig.class, TestData.class, CorsBypass.class})
 @EnableDiscoveryClient
 public class DiseaseSvcApplication {
 

@@ -2,7 +2,7 @@ package nkm.disease.model;
 
 public class DiseaseCure {
     private Long disease;
-    private Long cure;
+    private String cure;
 
     public Long getDisease() {
         return disease;
@@ -12,11 +12,11 @@ public class DiseaseCure {
         this.disease = disease;
     }
 
-    public Long getCure() {
+    public String getCure() {
         return cure;
     }
 
-    public void setCure(Long cure) {
+    public void setCure(String cure) {
         this.cure = cure;
     }
 }

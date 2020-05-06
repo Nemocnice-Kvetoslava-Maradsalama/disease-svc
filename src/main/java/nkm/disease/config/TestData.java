@@ -1,4 +1,4 @@
-package nkm.disease;
+package nkm.disease.config;
 
 import nkm.disease.model.Disease;
 import nkm.disease.model.Symptom;

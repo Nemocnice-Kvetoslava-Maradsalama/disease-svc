@@ -1,4 +1,4 @@
-package nkm.disease;
+package nkm.disease.config;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

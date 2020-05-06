@@ -32,13 +32,13 @@ public class Disease {
     @ElementCollection
     @CollectionTable(name="Cures", joinColumns = @JoinColumn(name="disease_id"))
     @Column(name="cure")
-    private List<Long> cures;
+    private List<String> cures;
 
-    public List<Long> getCures() {
+    public List<String> getCures() {
         return cures;
     }
 
-    public void setCures(List<Long> cures) {
+    public void setCures(List<String> cures) {
         this.cures = cures;
     }
 
