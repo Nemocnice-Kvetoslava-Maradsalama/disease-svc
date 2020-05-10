@@ -24,4 +24,8 @@ eureka:
       defaultZone: ${EUREKA_URI:http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka}
   instance:
     preferIpAddress: true
-    instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+    instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}3
+
+feign:
+  hystrix:
+    enabled: true
