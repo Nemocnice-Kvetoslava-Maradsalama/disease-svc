@@ -16,9 +16,7 @@ public class DiseaseService {
     private DiseaseDao d;
 
     @Transactional(readOnly = true)
-    public Disease find(Long id) {
-        return d.find(id);
-    }
+    public Disease find(Long id) { return d.find(id); }
 
     @Transactional(readOnly = true)
     public List<Disease> findAll() {
