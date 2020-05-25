@@ -2,9 +2,9 @@ name: Maven build
 
 on:
   push:
-    branches: [ master ]
+    branches: [ authorization ]
   pull_request:
-    branches: [ master ]
+    branches: [ authorization ]
 
 jobs:
   build:
